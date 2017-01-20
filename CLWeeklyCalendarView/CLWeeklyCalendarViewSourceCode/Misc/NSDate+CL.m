@@ -42,7 +42,7 @@
     static NSDateFormatter *shortDayOfWeekFormatter;
     if(!shortDayOfWeekFormatter){
         shortDayOfWeekFormatter = [[NSDateFormatter alloc] init];
-        NSLocale* en_AU_POSIX = [[NSLocale alloc] initWithLocaleIdentifier:@"en_AU_POSIX"];
+        NSLocale* en_AU_POSIX =[[NSLocale alloc] initWithLocaleIdentifier:@"en_AU_POSIX"];//@"zh_CN"
         [shortDayOfWeekFormatter setLocale:en_AU_POSIX];
         [shortDayOfWeekFormatter setDateFormat:@"E"];
     }

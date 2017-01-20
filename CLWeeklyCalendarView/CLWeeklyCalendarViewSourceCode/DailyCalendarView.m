@@ -15,8 +15,8 @@
 @end
 
 
-#define DATE_LABEL_SIZE 28
-#define DATE_LABEL_FONT_SIZE 13
+#define DATE_LABEL_SIZE 22
+#define DATE_LABEL_FONT_SIZE 15
 
 @implementation DailyCalendarView
 
@@ -78,15 +78,15 @@
 
 -(void)markSelected:(BOOL)blnSelected
 {
-    //    DLog(@"mark date selected %@ -- %d",self.date, blnSelected);
+    //    DLog(@"mark date selected %@ -- %d",self.date, blnSelected);//[UIColor colorWithHex:0x0081c1] 蓝色
     if([self.date isDateToday]){
-        self.dateLabelContainer.backgroundColor = (blnSelected)?[UIColor whiteColor]: [UIColor colorWithHex:0x0081c1];
+        self.dateLabelContainer.backgroundColor = (blnSelected)?[UIColor colorWithHex:0xffc545]: [UIColor colorWithHex:0xfcdd9a];
         
-        self.dateLabel.textColor = (blnSelected)?[UIColor colorWithHex:0x0081c1]:[UIColor whiteColor];
+        self.dateLabel.textColor = [UIColor whiteColor];//(blnSelected)?[UIColor colorWithHex:0x0081c1]:[UIColor whiteColor];
     }else{
-        self.dateLabelContainer.backgroundColor = (blnSelected)?[UIColor whiteColor]: [UIColor clearColor];
+        self.dateLabelContainer.backgroundColor = (blnSelected)?[UIColor colorWithHex:0xffc545]: [UIColor clearColor];
         
-        self.dateLabel.textColor = (blnSelected)?[UIColor colorWithRed:52.0/255.0 green:161.0/255.0 blue:255.0/255.0 alpha:1.0]:[self colorByDate];
+        self.dateLabel.textColor = [UIColor whiteColor];//(blnSelected)?[UIColor colorWithRed:52.0/255.0 green:161.0/255.0 blue:255.0/255.0 alpha:1.0]:[self colorByDate];
     }
     
     

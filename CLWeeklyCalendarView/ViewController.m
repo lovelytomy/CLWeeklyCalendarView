@@ -46,8 +46,8 @@ static CGFloat CALENDER_VIEW_HEIGHT = 150.f;
 -(NSDictionary *)CLCalendarBehaviorAttributes
 {
     return @{
-             CLCalendarWeekStartDay : @2,                 //Start Day of the week, from 1-7 Mon-Sun -- default 1
-//             CLCalendarDayTitleTextColor : [UIColor yellowColor],
+             CLCalendarWeekStartDay : @1,                 //Start Day of the week, from 1-7 Mon-Sun -- default 1
+             CLCalendarDayTitleTextColor : [UIColor whiteColor],
 //             CLCalendarSelectedDatePrintColor : [UIColor greenColor],
              };
 }

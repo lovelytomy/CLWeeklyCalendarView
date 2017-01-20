@@ -17,7 +17,7 @@
 
 #define WEEKLY_VIEW_COUNT 7
 #define DAY_TITLE_VIEW_HEIGHT 20.f
-#define DAY_TITLE_FONT_SIZE 11.f
+#define DAY_TITLE_FONT_SIZE 12.f
 #define DATE_TITLE_MARGIN_TOP 22.f
 
 #define DATE_VIEW_MARGIN 3.f
@@ -99,7 +99,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     
     self.weekStartConfig = attributes[CLCalendarWeekStartDay] ? attributes[CLCalendarWeekStartDay] : [NSNumber numberWithInt:CLCalendarWeekStartDayDefault];
     
-    self.dayTitleTextColor = attributes[CLCalendarDayTitleTextColor]? attributes[CLCalendarDayTitleTextColor]:[UIColor colorWithHex:CLCalendarDayTitleTextColorDefault];
+    self.dayTitleTextColor =attributes[CLCalendarDayTitleTextColor]? attributes[CLCalendarDayTitleTextColor]:[UIColor colorWithHex:CLCalendarDayTitleTextColorDefault];
     
     self.selectedDatePrintFormat = attributes[CLCalendarSelectedDatePrintFormat]? attributes[CLCalendarSelectedDatePrintFormat] : CLCalendarSelectedDatePrintFormatDefault;
     
@@ -118,7 +118,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
         _dailyInfoSubViewContainer = [[UIView alloc] initWithFrame:CGRectMake(0, DATE_TITLE_MARGIN_TOP+DAY_TITLE_VIEW_HEIGHT + DATE_VIEW_HEIGHT + DATE_VIEW_MARGIN * 2, self.bounds.size.width, DATE_LABEL_INFO_HEIGHT)];
         _dailyInfoSubViewContainer.userInteractionEnabled = YES;
         [_dailyInfoSubViewContainer addSubview:self.weatherIcon];
-        [_dailyInfoSubViewContainer addSubview:self.dateInfoLabel];
+        [_dailyInfoSubViewContainer addSubview:self.dateInfoLabel];//显示当前时间
         
         
         UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dailyInfoViewDidClick:)];
@@ -172,9 +172,9 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
         
         
         _backgroundImageView.userInteractionEnabled = YES;
-        [_backgroundImageView addSubview:self.dayTitleSubViewContainer];
-        [_backgroundImageView addSubview:self.dailySubViewContainer];
-        [_backgroundImageView addSubview:self.dailyInfoSubViewContainer];
+        [_backgroundImageView addSubview:self.dayTitleSubViewContainer];//第一行
+        [_backgroundImageView addSubview:self.dailySubViewContainer];//第二行
+        [_backgroundImageView addSubview:self.dailyInfoSubViewContainer];//第三行
         
         
         //Apply swipe gesture
@@ -230,7 +230,7 @@ static float const CLCalendarSelectedDatePrintFontSizeDefault = 13.f;
     dayTitleLabel.textAlignment = NSTextAlignmentCenter;
     dayTitleLabel.font = [UIFont systemFontOfSize:DAY_TITLE_FONT_SIZE];
     
-    dayTitleLabel.text = [[date getDayOfWeekShortString] uppercaseString];
+    dayTitleLabel.text = [date getDayOfWeekShortString];//[[date getDayOfWeekShortString] uppercaseString];
     dayTitleLabel.date = date;
     dayTitleLabel.userInteractionEnabled = YES;
     
