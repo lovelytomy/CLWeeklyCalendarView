@@ -134,8 +134,11 @@ CLFaceDetectionImagePicker is brought to you by [Caesar Li]
     }
     
  5.星期文本文字大小设置
+ 
 调整`CLWeeklyCalendarView.m`中define DAY_TITLE_FONT_SIZE 12.f
+
 6.星期文本文字样式
+
 默认的星期样式是MON，我需要Mon的样式
 修改`CLWeeklyCalendarView.m`中`-(UILabel *)dayTitleViewForDate: (NSDate *)date inFrame: (CGRect)frame`方法中 dayTitleLabel.text = [date getDayOfWeekShortString];//[[date getDayOfWeekShortString] uppercaseString];即可。
 如果需要修改成中文样式，需要在`#import "NSDate+CL.h"`的方法`-(NSString *)getDayOfWeekShortString
