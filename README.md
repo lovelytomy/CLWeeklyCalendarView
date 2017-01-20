@@ -128,8 +128,9 @@ CLFaceDetectionImagePicker is brought to you by [Caesar Li]
     -(NSDictionary *)CLCalendarBehaviorAttributes
     {
     return @{
-             CLCalendarWeekStartDay : @1,                 //设置星期开始日期，默认是星期一，1-7代表星期一到星期日           CLCalendarDayTitleTextColor : [UIColor yellowColor],//设置星期行文本颜色，默认#C2E8FF
-    //             CLCalendarSelectedDatePrintColor : [UIColor greenColor],//设置第三行也就是显示当前选中日期行的文字颜色
+             CLCalendarWeekStartDay : @1,                 //设置星期开始日期，默认是星期一，1-7代表星期一到星期日           
+             CLCalendarDayTitleTextColor : [UIColor yellowColor],//设置星期行文本颜色，默认#C2E8FF
+    //       CLCalendarSelectedDatePrintColor : [UIColor greenColor],//设置第三行也就是显示当前选中日期行的文字颜色
            };
     }
     
