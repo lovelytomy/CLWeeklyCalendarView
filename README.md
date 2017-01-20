@@ -145,4 +145,21 @@ CLFaceDetectionImagePicker is brought to you by [Caesar Li]
 
  - 如果需要修改成中文样式，需要在`#import "NSDate+CL.h"`的方法`-(NSString *)getDayOfWeekShortString
 `中修改NSLocale* en_AU_POSIX =[[NSLocale alloc] initWithLocaleIdentifier:@"en_AU_POSIX"];//@"zh_CN"表示中文
+
+7.设置背景色
+默认的背景色是蓝色，如果想自定义颜色需要在`CLWeeklyCalendarViewDelegate`代理方法-(NSDictionary *)CLCalendarBehaviorAttributes中设置`CLCalendarBackgroundImageColor`，这个原作者demo中并没有提，但是根据`CLWeeklyCalendarView.m`的`applyCustomDefaults`方法可以推测出来，但是设置后并没有改变背景色😂，研究代码发现，作者没有添加设置背景色更新的方法，所以又在`CLWeeklyCalendarView.m`的`-(void)initDailyViews`中加上`_backgroundImageView.backgroundColor = self.backgroundImageColor? self.backgroundImageColor : [UIColor colorWithPatternImage:[UIImage calendarBackgroundImage:self.bounds.size.height]];`,万事大吉😊
+
+
+
+    #pragma mark - CLWeeklyCalendarViewDelegate
+    -(NSDictionary *)CLCalendarBehaviorAttributes
+    {
+    return @{
+             CLCalendarWeekStartDay : @1,                 //设置星期开始日期，默认是星期一，1-7代表星期一到星期日           
+             CLCalendarDayTitleTextColor : [UIColor yellowColor],//设置星期行文本颜色，默认#C2E8FF
+             CLCalendarBackgroundImageColor:[UIColor redColor],//整个calendar的背景色
+    //       CLCalendarSelectedDatePrintColor : [UIColor greenColor],//设置第三行也就是显示当前选中日期行的文字颜色
+           };
+    }
+
   
