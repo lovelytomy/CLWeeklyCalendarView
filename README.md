@@ -141,6 +141,7 @@ CLFaceDetectionImagePicker is brought to you by [Caesar Li]
 
 默认的星期样式是MON，我需要Mon的样式
 修改`CLWeeklyCalendarView.m`中`-(UILabel *)dayTitleViewForDate: (NSDate *)date inFrame: (CGRect)frame`方法中 dayTitleLabel.text = [date getDayOfWeekShortString];//[[date getDayOfWeekShortString] uppercaseString];即可。
+
 如果需要修改成中文样式，需要在`#import "NSDate+CL.h"`的方法`-(NSString *)getDayOfWeekShortString
 `中修改NSLocale* en_AU_POSIX =[[NSLocale alloc] initWithLocaleIdentifier:@"en_AU_POSIX"];//@"zh_CN"表示中文
   
